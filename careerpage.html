@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jobs | TechGirlie</title>
+  <link rel="icon" href="https://i.imgur.com/9TT1FOg.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="careerstyle.css" />
+</head>
+<body>
+
+  <header>
+    <img src="techgirlielogo.png" alt="TechGirlie Logo" />
+    <nav>
+      <a href="homepage.html.html">HOME</a>
+      <a href="jobspage.html.html">JOBS</a>
+      <a href="aboutpage.html.html">ABOUT</a>
+      <a href="careerpage.html.html">CAREERS</a>
+      <a href="loginpage.html.html">LOGIN</a>
+      <a href="feedback.html">FEEDBACK</a>
+    </nav>
+  </header>
+
+<div class="hero">
+  <h1>HYDRATE. HUSTLE. HIRE.</h1>
+  <p>browse roles that empower women in STEM</p>
+</div>
+
+<div class="filters">
+  <div class="filter-box" id="roleFilter">
+    <h3>FILTER <span style="float:right; cursor:pointer;" onclick="clearFilters()">clear ✕</span></h3>
+    <p style="color:#6c1f43;"><em>open job roles:</em></p>
+    <ul>
+      <li onclick="filterJobs('software engineering')">software engineering</li>
+      <li onclick="filterJobs('data analyst')">data analyst</li>
+      <li onclick="filterJobs('project management')">project management</li>
+      <li onclick="filterJobs('graduate')">graduate/internships</li>
+    </ul>
+  </div>
+
+  <div class="filter-box">
+    <h3><span>📍</span> locations</h3>
+    <ul>
+      <li onclick="filterLocation('united kingdom')">United Kingdom</li>
+      <li onclick="filterLocation('dubai')">Dubai</li>
+      <li onclick="filterLocation('usa')">USA</li>
+    </ul>
+  </div>
+</div>
+
+<div class="jobs" id="jobList">
+  <div class="job-card" data-role="data analyst" data-location="united kingdom">
+    <h2>HR - DATA ANALYST</h2>
+    <em>London</em>
+    <strong>ABOUT, techgirlie</strong>
+    <p>We are looking for Data Analysts passionate about metrics and storytelling through data visualization.</p>
+    <em>3 days a week, 2 days at home</em>
+  </div>
+
+  <div class="job-card" data-role="software engineering" data-location="usa">
+    <h2>SOFTWARE ENGINEER</h2>
+    <em>USA</em>
+    <strong>ABOUT, techgirlie</strong>
+    <p>Maintain and enhance our main system for optimizing job applications and backend performance.</p>
+    <em>3 days a week, 2 days at home</em>
+  </div>
+</div>
+
+<footer>
+  <a href="#">PRIVACY POLICY</a> |
+  <a href="#">TERMS OF SERVICE</a> |
+  <a href="#">CONTACT US</a>
+</footer>
+
+<!-- Chatbot Button -->
+<button class="chatbot-btn" title="Chat with us!">💬</button>
+
+<script>
+  function filterJobs(role) {
+    document.querySelectorAll('.job-card').forEach(card => {
+      card.classList.toggle('hidden', card.dataset.role !== role);
+    });
+  }
+
+  function filterLocation(location) {
+    document.querySelectorAll('.job-card').forEach(card => {
+      card.classList.toggle('hidden', card.dataset.location !== location);
+    });
+  }
+
+  function clearFilters() {
+    document.querySelectorAll('.job-card').forEach(card => {
+      card.classList.remove('hidden');
+    });
+  }
+
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+</script>
+
+</body>
+</html>
